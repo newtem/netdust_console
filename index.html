@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>newtem on top</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        
+        #container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-bottom: 1px solid #FFC0CB;
+            /* 연한 분홍색 밑줄 */
+            background-color: black;
+            /* 검은 배경색 */
+            color: white;
+            box-sizing: border-box;
+        }
+        
+        input[type="enter"] {
+            background-color: #FFC0CB;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        input[type="enter"]:hover {
+            background-color: #a04545;
+        }
+        
+        #output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h2>newtem's net dust console</h2>
+        <form id="forumForm">
+            <input type="text" id="message" name="message" placeholder="enter your code: " required><br>
+            <input type="submit" value="Submit">
+        </form>
+
+        <div id="output">
+            <!-- Messages will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('forumForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get input value
+            var message = document.getElementById('message').value;
+
+            // Create a new message element
+            var messageElement = document.createElement('div');
+            messageElement.textContent = message;
+
+            // Append the message to the output area
+            document.getElementById('output').appendChild(messageElement);
+
+            if (message.trim() === "bring") {
+                var printResult = document.createElement('div');
+                printResult.textContent = "bring is not working this terminal.";
+                document.getElementById('output').appendChild(printResult);
+            }
+
+            document.getElementById('message').value = '';
+        });
+    </script>
+</body>
+
+</html>
